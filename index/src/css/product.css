@@ -1,0 +1,47 @@
+.sizing{
+    width: fit-content;
+}
+
+.product-card{
+    width: 260px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+
+}
+
+.product-card:hover{
+    box-shadow: 0px 0px 5px rgb(160, 158, 158);
+}
+
+
+.coffee-pic{
+    width: 260px;
+    height: 200px;
+    border-radius: 7px;
+}
+
+
+.product-info{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.product-info h5{
+    color: #444E5E;
+}
+
+.product-info h6{
+    color: #717272ea;
+    font-weight: 500;
+    font-size: smaller;
+}
+
+.product-info p{
+    color: #444E5E;
+    font-size: smaller;
+}

@@ -1,0 +1,9 @@
+/index/node_modules
+/server/node_modules
+/index/.vercel
+/.DS_Store
+/AltitudePH.code-workspace
+/images
+/server/uploads
+/server/key.txt
+jsconfig.json

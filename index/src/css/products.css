@@ -1,0 +1,13 @@
+@media (max-width: 775px) {
+    .holder{
+        display: flex!important;
+        flex-direction: column!important;
+    }
+}
+
+
+@media (min-width: 1267px){
+    .col-md{
+        max-width: fit-content!important;
+    }
+}
