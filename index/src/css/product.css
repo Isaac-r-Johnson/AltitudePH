@@ -10,8 +10,6 @@
     border-radius: 7px;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 20px;
-
 }
 
 .product-card:hover{
@@ -44,4 +42,52 @@
 .product-info p{
     color: #444E5E;
     font-size: smaller;
+}
+
+.popup{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+.back-btn{
+    width: fit-content;
+    border: none;
+    font-weight: 500;
+    font-size: larger;
+    margin-left: 30px;
+}
+
+.meat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.display-img{
+    height: 375px;
+    border-radius: 5px;
+}
+
+.separator{
+    width: 7%;
+}
+
+.product-info-card{
+    height: 365px;
+    width: 400px;
+    background-color: rgba(180, 178, 178, 0.178);
+    border-radius: 5px;
+}
+
+.content{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h6{
+    font-weight: 500;
+    color: #A9B1BE;
+    margin-top: 10px;
 }
