@@ -7,6 +7,7 @@ const Product = (props) => {
     var cat = props.cat;
     var price = props.price;
     var des = props.des;
+
     return (
         <div>
             <Popup trigger=
@@ -29,10 +30,8 @@ const Product = (props) => {
                             <div className='popup'>
                                 <nav className="navbar">
                                     <div className="container-fluid">
-                                        <div className="">
-                                            <button onClick={() => { close()}} className="back-btn">Go Back</button>
-                                        </div>
-                                        <button id="logo-btn"><img src="logo.jpg" alt="AltitudePH" width="70" height="70" className="d-block align-text-top logo"/></button>
+                                        <button onClick={() => { close()}} className="back-btn">&lt;&lt; Go Back</button>
+                                        <img src="logo.jpg" alt="AltitudePH" width="70" height="70" className="d-block align-text-top logo"/>
                                     </div>
                                 </nav>
                                 <div className='meat'>

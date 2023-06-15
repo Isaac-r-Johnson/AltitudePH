@@ -39,6 +39,10 @@ html {
     flex-direction: column!important;
 }
 
+.container-fluid{
+    display: flex!important;
+    justify-content: center!important;
+}
 
 #infoBar{
     grid-column: span 1;
@@ -69,12 +73,12 @@ html {
     .search-con{
         display: none;
     }
+    .logo{
+        margin: 0px;
+    }
     .container-fluid{
         display: flex!important;
         justify-content: center!important;
-    }
-    .logo{
-        margin: 0px;
     }
 }
 
@@ -91,4 +95,10 @@ html {
 
 .up-btn button{
     background-color: rgba(255, 255, 255, 0.491);
+}
+
+@media (max-width: 940px) {
+    .up-btn{
+        display: none;
+    }
 }

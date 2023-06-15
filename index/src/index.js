@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client';
 import Products from './products';
 import './css/sideBar.css';
 
-var logoBtn = document.getElementById('logo-btn');
-var topBtn = document.getElementById("top-btn");
-
 const products = ReactDOM.createRoot(document.getElementById('products'));
 const infoBar = ReactDOM.createRoot(document.getElementById('infoBar'));
 
@@ -220,8 +217,6 @@ const Reset = () => {
     );
     renderSideBar();
 }
-
-logoBtn.addEventListener('click', Reset);
 All();
 renderSideBar();
 
