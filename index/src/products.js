@@ -8,7 +8,6 @@ const App = (props) => {
     var sortType = props.sortType;
 
     const [products, setProducts] = React.useState([]);
-
     const LoadProducts = () => {
         fetch('/products')
           .then(json => json.json())
@@ -16,10 +15,12 @@ const App = (props) => {
             setProducts(data);
           })
     }
+    
     React.useEffect(() => {
         LoadProducts();
       }, []);
 
+    console.log("rendering");
     if (display === "all" && viewType === "insta" && sortType === "cat"){
         // Also use vercel to host backend, then change address in the package.json for react app
         return (
