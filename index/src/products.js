@@ -10,7 +10,7 @@ const App = (props) => {
 
     const [products, setProducts] = React.useState([]);
     const LoadProducts = () => {
-        fetch('/products')
+        fetch('https://altitude-api.vercel.app/products')
           .then(json => json.json())
           .then(data => {
             setProducts(data);
@@ -123,9 +123,3 @@ const App = (props) => {
 }
 
 export default App;
-
-// If I need images again.
-// const base64String = btoa(
-//     String.fromCharCode(...new Uint8Array((product.img.data.data)))
-// );
-// {`data:image/png;base64,${base64String}`}

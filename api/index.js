@@ -3,8 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fs = require('node:fs');
-// const multer = require('multer');
-// const path = require('path');
 
 // Init
 const app = express();
@@ -12,25 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ extended: true }));
 PORT = 5000;
 
-// const clear = (dir) => {
-//     fs.readdir(dir, (err, files) => {
-//         if (err) throw err;
-      
-//         for (const file of files) {
-//           fs.unlink(path.join(dir, file), (err) => {
-//             if (err) throw err;
-//           });
-//         }
-//       });
-// }
-
-
 // DB Prep
 const productSchema = new mongoose.Schema({
-    // img: {
-    //     data: Buffer,
-    //     contentType: String
-    // },
     img: String,
     cat: String,
     name: String,
@@ -255,53 +236,16 @@ app.get('/products', (req, res) => {
 
 
 // listen for connections
-fs.readFile(__dirname + "/key.txt", 'utf8', (err, addr) => {
-    mongoose.connect(addr)
-    .then(() => {
-        app.listen(PORT, () => {
-        console.log("Connected to DB & Listening on port " + PORT + "...");
-    });
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+const addr = 'mongodb+srv://isaacrjmk:TwnF0P26xdASZnfw@altitudeph-db.xjyvcid.mongodb.net/AltitudePH-DB?retryWrites=true&w=majority';
+mongoose.connect(addr)
+.then(() => {
+    app.listen(PORT, () => {
+    console.log("Connected to DB & Listening on port " + PORT + "...");
 });
+})
+.catch((error) => {
+    console.log(error)
+})
 
 
-// use for images if this doesn't work:
-
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb)=>{
-//         cb(null, './uploads');
-//     },
-//     filename: (req, file, cb)=>{
-//         cb(null, file.originalname);
-//     }
-// });
-
-// const upload = multer({storage:storage});
-
-
-// app.post('/upload', upload.single('productImg'), (req, res) => {
-//     const productToUpload = {
-//         img:{
-//             data: fs.readFileSync('./uploads/' + req.file.filename),
-//             contentType: 'image/png'
-//         },
-//         cat: req.body.cat,
-//         name: req.body.name,
-//         price: Number(req.body.price),
-//         des: req.body.des
-//     }
-//     Product.insertMany(productToUpload)
-//     .then(() => {
-//         res.send("Good!");
-//         clear('./uploads');
-//     })
-//     .catch(() => {
-//         res.send("Bad!");
-//         clear('./uploads');
-//     })
-// });
-
-
+module.exports = app;
