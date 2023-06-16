@@ -2,12 +2,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const fs = require('node:fs');
+const cors = require('cors');
 
 // Init
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ extended: true }));
+app.use(cors({
+    origin: '*'
+}));
 PORT = 5000;
 
 // DB Prep
