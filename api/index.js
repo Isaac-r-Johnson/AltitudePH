@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const fs = require('fs');
 
 // Init
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors({
     origin: '*'
 }));
 PORT = 5000;
+CATS = ["bottled", "hot", "food", "tea"];
 
 // DB Prep
 const productSchema = new mongoose.Schema({
@@ -28,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 // Temp URL to write products to the db
-const products = [
+const tempProductList = [
     {
         img: "https://res.cloudinary.com/dqaxkucbu/image/upload/v1686901054/AltitudePHImages/coco-brew_owutee.jpg",
         cat: "bottled",
@@ -213,7 +215,7 @@ const products = [
     }
 ]
 app.get('/write', (req, res) => {
-    Product.insertMany(products)
+    Product.insertMany(tempProductList)
     .then(res.send("Success!!"));
 });
 
@@ -230,6 +232,27 @@ const prepareProducts = (data) => {
     }
     return productsList;
 }
+
+
+// return products
+
+app.get("/all", (req, res) => {
+    Product.find().then(data => {
+        var products = prepareProducts(data);
+        var sortedProducts = [];
+        for (var i = 0; i < CATS.length; i++){
+            for (var j = 0; j < products.length; j++){
+                if (products[j].cat === CATS[i]){
+                    sortedProducts.push(products[j]);
+                }
+            }
+        }
+        res.send(sortedProducts);
+        console.log("Sent All Products");
+    })
+});
+
+
 app.get('/products', (req, res) => {
     Product.find().then((data) => {
         res.send(prepareProducts(data));
@@ -238,17 +261,23 @@ app.get('/products', (req, res) => {
 });
 
 
+
+
+
+
 // listen for connections
-const addr = 'mongodb+srv://isaacrjmk:TwnF0P26xdASZnfw@altitudeph-db.xjyvcid.mongodb.net/AltitudePH-DB?retryWrites=true&w=majority';
-mongoose.connect(addr)
-.then(() => {
-    app.listen(PORT, () => {
-    console.log("Connected to DB & Listening on port " + PORT + "...");
-});
-})
-.catch((error) => {
-    console.log(error)
-})
+fs.readFile(__dirname + "/key.txt", 'utf8', function(err, addr) {
+    if (err) throw err;
+    mongoose.connect(addr)
+    .then(() => {
+        app.listen(PORT, () => {
+        console.log("Connected to DB & Listening on port " + PORT + "...");
+    });
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+  });
 
 
 module.exports = app;

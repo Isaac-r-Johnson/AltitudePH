@@ -2,6 +2,7 @@
 /api/node_modules
 /index/.vercel
 /api/.vercel
+/api/key.txt
 /.DS_Store
 /AltitudePH.code-workspace
 /images
