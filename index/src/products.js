@@ -11,8 +11,7 @@ const App = (props) => {
 
     const [products, setProducts] = React.useState([]);
     const cats = ["bottled", "hot", "food", "tea"];
-    var url = "";
-    // https://altitude-api.vercel.app
+    var url = "https://altitude-api.vercel.app";
 
     const sort = (db) => {
         var sortedProducts = [];
