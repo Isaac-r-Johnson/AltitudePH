@@ -102,3 +102,42 @@ html {
         display: none;
     }
 }
+
+
+/* Mobil Side Bar */
+@media (max-width: 830px) {
+    .mobile-navbar{
+        display: grid!important;
+    }
+}
+
+.mobile-navbar{
+    display: none;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.mobile-btn{
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: 600;
+    height: fit-content;
+    background-color: #f6f6f6da;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+}
+
+.mobile-btn:active{
+    background-color: #c5c5c5da;
+}
+
+.sort-btn{
+    justify-self: flex-start;
+    margin-left: 20px;
+}
+
+.contact-btn{
+    justify-self: flex-end;
+    margin-right: 20px;
+}

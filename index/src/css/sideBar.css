@@ -2,6 +2,7 @@ button{
     border: none;
     background-color: white;
     text-decoration: none;
+    color: black;
 }
 a{
     margin-left: 5px;
@@ -60,4 +61,48 @@ a{
 
 .not-clicked{
     color: #444e5e9c;
+}
+
+.mobileSort{
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+    height: fit-content;
+    border-bottom: 1px solid gray;
+}
+
+.sort-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info ul{
+    list-style: none;
+}
+
+.contact-info li{
+    text-decoration: underline;
+}
+
+.col1{
+    justify-self: flex-start;
+    margin-left: 25px;
+}
+
+.col2{
+    justify-self: flex-end;
+    margin-right: 25px;
+}
+
+
+.btn-container{
+    display: flex;
+    justify-content: center;
 }

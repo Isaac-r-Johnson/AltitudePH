@@ -1,7 +1,6 @@
 /* eslint-disable array-callback-return */
 import './css/products.css';
 import Product from './product';
-import ProductS from './product-stretched';
 import React from 'react';
 
 const App = (props) => {
@@ -12,6 +11,7 @@ const App = (props) => {
     const [products, setProducts] = React.useState([]);
     const cats = ["bottled", "hot", "food", "tea"];
     var url = "https://altitude-api.vercel.app";
+    // var url = "";
 
     const sort = (db) => {
         var sortedProducts = [];
@@ -26,12 +26,12 @@ const App = (props) => {
     }
     
     React.useEffect(() => {
-        fetch(url + "/all")
+        fetch(url + "/products")
               .then(json => json.json())
               .then(data => {
                 setProducts(data);
               })
-      }, []);
+      });
 
     if (viewType === "insta"){
         if (sortType === "cat"){
@@ -495,7 +495,7 @@ const App = (props) => {
                             <div className='row holder'>
                             {
                                 sort(products).map((product) => {
-                                    return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                    return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                 })
                             }
                             </div>
@@ -512,7 +512,7 @@ const App = (props) => {
                             {
                                 sort(products).map((product) => {
                                     if (product.cat === "food"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -530,7 +530,7 @@ const App = (props) => {
                             {
                                 sort(products).map((product) => {
                                     if (product.cat === "bottled"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -548,7 +548,7 @@ const App = (props) => {
                             {
                                 sort(products).map((product) => {
                                     if (product.cat === "hot"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -566,7 +566,7 @@ const App = (props) => {
                             {
                                 sort(products).map((product) => {
                                     if (product.cat === "tea"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -585,7 +585,7 @@ const App = (props) => {
                             <div className='row holder'>
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? 1 : -1).map((product) => {
-                                    return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                    return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                 })
                             }
                             </div>
@@ -602,7 +602,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? 1 : -1).map((product) => {
                                     if (product.cat === "food"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -620,7 +620,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? 1 : -1).map((product) => {
                                     if (product.cat === "bottled"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -638,7 +638,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? 1 : -1).map((product) => {
                                     if (product.cat === "hot"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -656,7 +656,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? 1 : -1).map((product) => {
                                     if (product.cat === "tea"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -675,7 +675,7 @@ const App = (props) => {
                             <div className='row holder'>
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? -1 : 1).map((product) => {
-                                    return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                    return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                 })
                             }
                             </div>
@@ -692,7 +692,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? -1 : 1).map((product) => {
                                     if (product.cat === "food"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -710,7 +710,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? -1 : 1).map((product) => {
                                     if (product.cat === "bottled"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -728,7 +728,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? -1 : 1).map((product) => {
                                     if (product.cat === "hot"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -746,7 +746,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (Number(a.price) > Number(b.price)) ? -1 : 1).map((product) => {
                                     if (product.cat === "tea"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -765,7 +765,7 @@ const App = (props) => {
                             <div className='row holder'>
                             {
                                 products.sort((a, b) => (a.name > b.name) ? 1 : -1).map((product) => {
-                                    return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                    return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                 })
                             }
                             </div>
@@ -782,7 +782,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? 1 : -1).map((product) => {
                                     if (product.cat === "food"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -800,7 +800,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? 1 : -1).map((product) => {
                                     if (product.cat === "bottled"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -818,7 +818,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? 1 : -1).map((product) => {
                                     if (product.cat === "hot"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -836,7 +836,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? 1 : -1).map((product) => {
                                     if (product.cat === "tea"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -855,7 +855,7 @@ const App = (props) => {
                             <div className='row holder'>
                             {
                                 products.sort((a, b) => (a.name > b.name) ? -1 : 1).map((product) => {
-                                    return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                    return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                 })
                             }
                             </div>
@@ -872,7 +872,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? -1 : 1).map((product) => {
                                     if (product.cat === "food"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -890,7 +890,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? -1 : 1).map((product) => {
                                     if (product.cat === "bottled"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -908,7 +908,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? -1 : 1).map((product) => {
                                     if (product.cat === "hot"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }
@@ -926,7 +926,7 @@ const App = (props) => {
                             {
                                 products.sort((a, b) => (a.name > b.name) ? -1 : 1).map((product) => {
                                     if (product.cat === "tea"){
-                                        return <div className='col-md'><ProductS pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
+                                        return <div className='col-md'><Product mode="list" pic={product.img} title={product.name} cat={product.cat} price={product.price} des={product.des}/></div>
                                     }
                                 })
                             }

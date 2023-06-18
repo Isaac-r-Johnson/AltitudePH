@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-@media (max-width: 775px) {
+@media (max-width: 846px) {
     .holder{
         display: flex!important;
         flex-direction: column!important;

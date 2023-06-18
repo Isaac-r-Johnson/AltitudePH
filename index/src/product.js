@@ -7,21 +7,34 @@ const Product = (props) => {
     var cat = props.cat;
     var price = props.price;
     var des = props.des;
+    var mode = props.mode;
 
     return (
         <div>
             <Popup trigger=
                     {
                     <div className='sizing'>
-                        <div className="product-card">
-                            <img className='coffee-pic' src={pic} alt={title}/>
-                            <div className='product-info'>
-                                <h5>{title}</h5>
-                                <h6>{cat}</h6>
-                                <h4>₱{price}.00</h4>
-                                <p>{des}</p>
+                        {mode === "list" ? (
+                            <div className="product-card-stretched product-card">
+                                <img className='coffee-pic' src={pic} alt={title}/>
+                                <div className='product-info'>
+                                    <h5>{title}</h5>
+                                    <h6>{cat}</h6>
+                                    <h4>₱{price}.00</h4>
+                                    <p>{des}</p>
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div className="product-card">
+                                <img className='coffee-pic' src={pic} alt={title}/>
+                                <div className='product-info'>
+                                    <h5>{title}</h5>
+                                    <h6>{cat}</h6>
+                                    <h4>₱{price}.00</h4>
+                                    <p>{des}</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                     }
                     modal nested>

@@ -13,7 +13,6 @@ app.use(cors({
     origin: '*'
 }));
 PORT = 5000;
-CATS = ["bottled", "hot", "food", "tea"];
 
 // DB Prep
 const productSchema = new mongoose.Schema({
@@ -235,34 +234,12 @@ const prepareProducts = (data) => {
 
 
 // return products
-
-app.get("/all", (req, res) => {
-    Product.find().then(data => {
-        var products = prepareProducts(data);
-        var sortedProducts = [];
-        for (var i = 0; i < CATS.length; i++){
-            for (var j = 0; j < products.length; j++){
-                if (products[j].cat === CATS[i]){
-                    sortedProducts.push(products[j]);
-                }
-            }
-        }
-        res.send(sortedProducts);
-        console.log("Sent All Products");
-    })
-});
-
-
 app.get('/products', (req, res) => {
     Product.find().then((data) => {
         res.send(prepareProducts(data));
         console.log("Sent Products");
     });
 });
-
-
-
-
 
 
 // listen for connections
