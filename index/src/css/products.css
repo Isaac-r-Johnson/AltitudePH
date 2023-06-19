@@ -3,16 +3,13 @@
     flex-direction: column;
 }
 
+.col-md{
+    max-width: fit-content!important;
+}
+
 @media (max-width: 846px) {
     .holder{
         display: flex!important;
         flex-direction: column!important;
-    }
-}
-
-
-@media (min-width: 1267px){
-    .col-md{
-        max-width: fit-content!important;
     }
 }
