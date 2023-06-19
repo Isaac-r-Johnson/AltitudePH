@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable array-callback-return */
 import './css/products.css';
 import Product from './product';
@@ -31,7 +32,7 @@ const App = (props) => {
               .then(data => {
                 setProducts(data);
               })
-      });
+      }, []);
 
     if (viewType === "insta"){
         if (sortType === "cat"){

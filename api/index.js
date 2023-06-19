@@ -244,7 +244,10 @@ app.get('/products', (req, res) => {
 
 // listen for connections
 fs.readFile(__dirname + "/key.txt", 'utf8', function(err, addr) {
-    if (err) throw err;
+    if (err){
+        console.log("Error!");
+        throw err;
+    }
     mongoose.connect(addr)
     .then(() => {
         app.listen(PORT, () => {
@@ -252,6 +255,7 @@ fs.readFile(__dirname + "/key.txt", 'utf8', function(err, addr) {
     });
     })
     .catch((error) => {
+        console.log("Error!");
         console.log(error)
     })
   });
