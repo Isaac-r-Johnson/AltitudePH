@@ -29,7 +29,7 @@ html {
 .container-grid{
     width: 100%;
     display: grid;
-    grid-template-columns: .75fr 1fr 1fr;
+    grid-template-columns: .7fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 20px;
 }
