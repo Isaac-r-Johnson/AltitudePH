@@ -167,10 +167,10 @@ footer{
 }
 
 @media (max-width: 400px){
-    .content p{
+    .footer-content p{
         font-size: smaller;
     }
-    .content{
+    .footer-content{
         margin-right: auto;
         margin-left: auto;
     }
