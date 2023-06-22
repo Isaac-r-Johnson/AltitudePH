@@ -1,0 +1,13 @@
+.item{
+    border: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px gray;
+}
+
+.item img{
+    width: 180px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
