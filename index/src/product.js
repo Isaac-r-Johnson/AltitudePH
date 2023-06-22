@@ -31,7 +31,6 @@ const Product = (props) => {
                                     <h5>{title}</h5>
                                     <h6>{cat}</h6>
                                     <h4>₱{price}.00</h4>
-                                    <p id="special-text">-</p>
                                 </div>
                             </div>
                         )}

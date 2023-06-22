@@ -1,3 +1,7 @@
+.self{
+    width: 200px;
+}
+
 .item{
     border: none;
     width: 200px;
@@ -6,8 +10,84 @@
     box-shadow: 0px 0px 2px gray;
 }
 
+.item:hover{
+    box-shadow: 0px 0px 4px gray;
+}
+
 .item img{
-    width: 180px;
+    width: 90%;
+    height: 75%;
     border-radius: 5px;
     margin-top: 5px;
+    margin-bottom: 0px;
 }
+
+.item h3{
+    font-size: 1rem;
+    margin: 5px;
+    color: black;
+}
+
+@media (max-width: 890px){
+    .self{
+        width: 150px;
+    }
+    .item{
+        width: 150px;
+        height: 150px;
+    }
+    .item h3{
+        font-size: .7rem;
+    }
+}
+
+@media (max-width: 677px){
+    .self{
+        width: 110px;
+    }
+    .item{
+        width: 110px;
+        height: 105px;
+    }
+    .item h3{
+        font-size: .4rem;
+    }
+}
+
+.popup{
+    width: 300px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.852);
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup h2{
+    margin: 0px;
+}
+
+.toggle-btn{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+    background-color: #4df04a;
+    font-family: 'Lexend Peta', sans-serif;
+    box-shadow: 0px 0px 2px gray;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.toggle-btn:hover{
+    box-shadow: 0px 1px 4px gray;
+}
+
+.toggle-btn:active{
+    background-color: #2bd828;
+  }
+

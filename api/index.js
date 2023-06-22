@@ -65,6 +65,14 @@ const productPreview = (data) => {
     return productsToAdd;
 }
 
+const findProduct = (db, name) => {
+    for (var i = 0; i < db.length; i++){
+        if (db[i].name === name){
+            return db[i];
+        }
+    }
+}
+
 
 // return products
 app.get('/products', (req, res) => {
@@ -78,7 +86,46 @@ app.get('/preview', (req, res) => {
     AllProduct.find().then((data) => {
         res.send(productPreview(data));
     })
+    console.log("Sent!");
 })
+
+app.post('/add-product', (req, res) => {
+    AllProduct.find()
+    .then((data) => {
+        var productToAdd = findProduct(data, req.body.theName);
+        Product.insertMany([productToAdd])
+        .then(() => {
+            res.send("Success");
+            console.log("Add");
+        })
+        .catch(() => {
+            console.log("This product already exists!");
+        })
+    })
+});
+
+app.post('/rm-product', (req ,res) => {
+    Product.deleteOne( {name: req.body.theName} )
+    .then(() => {
+        res.send("Success");
+        console.log("Remove");
+    })
+    .catch(() => {
+        console.log("There is no product to delete!");
+    })
+});
+
+app.post('/add-to-db', (req, res) => {
+    AllProduct.insertMany([req.body])
+    .then(() => {
+        res.send("Success!");
+        console.log("Success!");
+    })
+    .catch(() => {
+        res.send("Error!");
+        console.log("Error!");
+    });
+});
 
 // listen for connections
 fs.readFile(__dirname + "/key.txt", 'utf8', function(err, addr) {
